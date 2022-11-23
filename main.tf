@@ -13,19 +13,19 @@ terraform {
 
 module "eks-cluster" {
   source = "./modules/eks-cluster"
-  cidr_block = "10.0.0.0/16"
-  private-1-subnet-cidr  = "10.0.1.0/24"
-  private-2-subnet-cidr  = "10.0.2.0/24"
-  public-1-subnet-cidr   = "10.0.3.0/24"
-  public-2-subnet-cidr   = "10.0.4.0/24"
+  cidr_block = "172.60.0.0/16"
+  private-1-subnet-cidr  = "172.60.1.0/24"
+  private-2-subnet-cidr  = "172.60.2.0/24"
+  public-1-subnet-cidr   = "172.60.3.0/24"
+  public-2-subnet-cidr   = "172.60.4.0/24"
   rds_instance_identifier = "postgres-rds"
   Environment = "dev"
   name = "dbs-cluster"
-  desired-size = 6
-  max-size = 8
-  min-size = 4
-  max-unavailable = 4
-  instance-types = [ "t3.2xlarge" ]
+  desired-size = 3
+  max-size =4
+  min-size = 2
+  max-unavailable = 2
+  instance-types = [ "t2.micro" ]
 }
 
 
